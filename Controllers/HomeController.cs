@@ -19,14 +19,21 @@ namespace PlacesVisited.Controllers
             List<Place> places = Place.GetAll();
             return View(places);
         }
+
+        [HttpGet("/placelist/{id}")]
+        public ActionResult GetCurrentPlace(int id)
+        {
+            Place place = Place.Find(id);
+            return View("CurrentPlace", splace);
+        }
+
         [HttpPost("/placelist/create")]
         public ActionResult CreatePlace()
         {
             Contact placeContact = new Contact(Request.Form["name"], Request.Form["email"], Request.Form["phone"]);
 
-            Place newPlace = new Place(Request.Form["location"], Int32.Parse(Request.Form["duration"]), placeContact);
+            Place newPlace = new Place(Request.Form["location"], int.Parse(Request.Form["duration"]), placeContact);
 
-            newPlace.Save();
             return View(newPlace);
         }
 

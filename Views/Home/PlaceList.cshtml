@@ -9,13 +9,13 @@
         @foreach(var place in Model)
         {
             <h2>Hello</h2>
-            <p>@place.GetContact().GetName()</p>
+            <p><a href='/placelist/@place.GetId()'>@place.GetContact().GetName()</a></p>
             <h3>Your Contact information is</h3>
         	<p>@place.GetContact().GetEmail()</p>
             <p>@place.GetContact().GetPhone()</p>
             <h3>list of Places visited</h3>
                 <ul>
-                <li>@place.GetLocation()</li>
+                <li><a href='/placelist/@place.GetId()'>@place.GetLocation()</a></li>
                 <li>@place.GetDuration()</li>
                 </ul>
         }

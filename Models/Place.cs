@@ -31,6 +31,7 @@ namespace PlacesVisited.Models
     {
         private string _location;
         private int _duration;
+        private int _id;
         private static List<Place> _places = new List<Place>{};
         private Contact _placeContact;
 
@@ -39,6 +40,8 @@ namespace PlacesVisited.Models
             _location = location;
             _duration = duration;
             _placeContact = placeContact;
+            _places.Add(this);
+            _id = _places.Count;
         }
         public string GetLocation()
         {
@@ -56,6 +59,10 @@ namespace PlacesVisited.Models
         {
             _duration = duration;
         }
+        public int GetId()
+        {
+            return _id;
+        }
         public static List<Place> GetAll()
         {
             return _places;
@@ -64,9 +71,9 @@ namespace PlacesVisited.Models
         {
             return _placeContact;
         }
-        public void Save()
+        public static Place Find(int searchId)
         {
-          _places.Add(this);
+            return _places[searchId-1];
         }
         // public string GetMessage()
         // {
