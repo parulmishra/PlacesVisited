@@ -24,7 +24,7 @@ namespace PlacesVisited.Controllers
         public ActionResult GetCurrentPlace(int id)
         {
             Place place = Place.Find(id);
-            return View("CurrentPlace", splace);
+            return View("CurrentPlace", place);
         }
 
         [HttpPost("/placelist/create")]

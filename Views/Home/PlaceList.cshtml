@@ -9,14 +9,22 @@
         @foreach(var place in Model)
         {
             <h2>Hello</h2>
-            <p><a href='/placelist/@place.GetId()'>@place.GetContact().GetName()</a></p>
+            <p>Name : @place.GetContact().GetName()</p>
             <h3>Your Contact information is</h3>
-        	<p>@place.GetContact().GetEmail()</p>
-            <p>@place.GetContact().GetPhone()</p>
-            <h3>list of Places visited</h3>
+        	<p>Email : @place.GetContact().GetEmail()</p>
+            <p>Phone : @place.GetContact().GetPhone()</p>
+            <h3>List of Places visited</h3>
                 <ul>
-                <li><a href='/placelist/@place.GetId()'>@place.GetLocation()</a></li>
-                <li>@place.GetDuration()</li>
+                <li>Location : <a href='/placelist/@place.GetId()'>@place.GetLocation()</a></li>
+                <p>Duration of Stay: @place.GetDuration() Days</p>
+                @if(@place.GetLocation() == "seattle")
+                {
+                    <img src ="https://goairportshuttle.com/images/site/slider-seattle-1.jpg" alt="seattle"/>
+                }
+                @if(@place.GetLocation() == "india")
+                {
+                    <img src ="https://www.cia.gov/library/publications/the-world-factbook/photo_gallery/in/images/large/IN_003_large.jpg" alt= "india"/>
+                }
                 </ul>
         }
     </ul>
