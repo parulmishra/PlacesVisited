@@ -6,3 +6,11 @@
 /Users/Guest/Desktop/PlacesVisited/bin/Debug/netcoreapp1.1/PlacesVisited.pdb
 /Users/Guest/Desktop/PlacesVisited/obj/Debug/netcoreapp1.1/PlacesVisited.dll
 /Users/Guest/Desktop/PlacesVisited/obj/Debug/netcoreapp1.1/PlacesVisited.pdb
+C:\Users\amdubedy\desktop\mywork\PlacesVisited\bin\Debug\netcoreapp1.1\PlacesVisited.deps.json
+C:\Users\amdubedy\desktop\mywork\PlacesVisited\bin\Debug\netcoreapp1.1\PlacesVisited.runtimeconfig.json
+C:\Users\amdubedy\desktop\mywork\PlacesVisited\bin\Debug\netcoreapp1.1\PlacesVisited.runtimeconfig.dev.json
+C:\Users\amdubedy\desktop\mywork\PlacesVisited\bin\Debug\netcoreapp1.1\PlacesVisited.dll
+C:\Users\amdubedy\desktop\mywork\PlacesVisited\bin\Debug\netcoreapp1.1\PlacesVisited.pdb
+C:\Users\amdubedy\desktop\mywork\PlacesVisited\obj\Debug\netcoreapp1.1\PlacesVisited.AssemblyInfo.cs
+C:\Users\amdubedy\desktop\mywork\PlacesVisited\obj\Debug\netcoreapp1.1\PlacesVisited.dll
+C:\Users\amdubedy\desktop\mywork\PlacesVisited\obj\Debug\netcoreapp1.1\PlacesVisited.pdb

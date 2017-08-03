@@ -7,13 +7,19 @@ namespace PlacesVisited.Models
 		private string _name;
 		private string _email;
 		private string _phone;
-
-		public Contact(string name, string email, string phone)
+		private int _duration;
+		
+		public Contact(string name, string email, string phone, int duration)
 		{
 			_name = name;
 			_email = email;
 			_phone = phone;
+			_duration = duration;
 		}
+		public int GetDuration()
+        {
+            return _duration;
+        }
 		public string GetName()
 		{
 			return _name;
@@ -30,19 +36,37 @@ namespace PlacesVisited.Models
     public class Place
     {
         private string _location;
-        private int _duration;
         private int _id;
-        private static List<Place> _places = new List<Place>{};
-        private Contact _placeContact;
+		private List<Contact> _contacts = new List<Contact>();
+        private static List<Place> _places = new List<Place>();
 
-        public Place(string location, int duration, Contact placeContact)
+        private Place(string location, Contact contact)
         {
             _location = location;
-            _duration = duration;
-            _placeContact = placeContact;
             _places.Add(this);
             _id = _places.Count;
+			_contacts.Add(contact);
         }
+		public static Place Create(string location, Contact contact)
+		{
+			foreach(var place in _places)
+			{
+				if(place.GetLocation() == location)
+				{
+					place.AddContact(contact);
+					return place;
+				}
+			}
+			return new Place(location, contact);
+		}
+		public void AddContact(Contact contact)
+		{
+			_contacts.Add(contact);
+		}
+		public List<Contact> GetContacts()
+		{
+			return _contacts;
+		}
         public string GetLocation()
         {
             return _location;
@@ -51,14 +75,6 @@ namespace PlacesVisited.Models
         {
             _location = location;
         }
-        public int GetDuration()
-        {
-            return _duration;
-        }
-        public void SetDuration(int duration)
-        {
-            _duration = duration;
-        }
         public int GetId()
         {
             return _id;
@@ -66,10 +82,6 @@ namespace PlacesVisited.Models
         public static List<Place> GetAll()
         {
             return _places;
-        }
-        public Contact GetContact()
-        {
-            return _placeContact;
         }
         public static Place Find(int searchId)
         {

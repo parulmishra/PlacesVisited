@@ -1,4 +1,31 @@
-<h1>Current Place!</h1>
-<p>@Model.GetLocation()</p>
-<p><a href="/">Add another place</a></p>
-<p><a href="/placelist">View list</a></p>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Place Visited</title>
+  </head>
+  <body>
+    <h1>Check out the list of Places visited</h1>
+        {
+            <p><strong>Location : <a href='/placelist/@Model.GetId()'>@Model.GetLocation()</a></strong></p>
+			@if(@Model.GetLocation() == "seattle")
+			{
+				<img src ="https://goairportshuttle.com/images/site/slider-seattle-1.jpg" alt="seattle"/>
+			}
+			@if(@Model.GetLocation() == "india")
+			{
+				<img src ="https://www.cia.gov/library/publications/the-world-factbook/photo_gallery/in/images/large/IN_003_large.jpg" alt= "india"/>
+			}
+			<p>People who visited</p>
+			@foreach(var contact in Model.GetContacts())
+			{
+				<p>Name : @contact.GetName()</p>
+				<p>Phone : @contact.GetPhone()</p>
+				<p>Email : @contact.GetEmail()</p>
+				<p>Duration : @contact.GetDuration()</p>
+			}
+        }
+    <p><a href="/">Add another place</a></p>
+	<p><a href="/placelist">View list</a></p>
+  </body>
+</html>

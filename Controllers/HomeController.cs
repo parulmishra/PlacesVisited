@@ -17,6 +17,7 @@ namespace PlacesVisited.Controllers
         public ActionResult PlaceList()
         {
             List<Place> places = Place.GetAll();
+			
             return View(places);
         }
 
@@ -24,15 +25,15 @@ namespace PlacesVisited.Controllers
         public ActionResult GetCurrentPlace(int id)
         {
             Place place = Place.Find(id);
-            return View("CurrentPlace", place);
+			return View("CurrentPlace", place);
         }
 
         [HttpPost("/placelist/create")]
         public ActionResult CreatePlace()
         {
-            Contact placeContact = new Contact(Request.Form["name"], Request.Form["email"], Request.Form["phone"]);
+            Contact placeContact = new Contact(Request.Form["name"], Request.Form["email"], Request.Form["phone"], int.Parse(Request.Form["duration"]));
 
-            Place newPlace = new Place(Request.Form["location"], int.Parse(Request.Form["duration"]), placeContact);
+            Place newPlace = Place.Create(Request.Form["location"], placeContact);
 
             return View(newPlace);
         }
